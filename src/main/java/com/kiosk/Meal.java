@@ -1,2 +1,5 @@
-package com.kiosk;public class Meal {
+package com.kiosk;
+
+public class Meal {
+
 }
