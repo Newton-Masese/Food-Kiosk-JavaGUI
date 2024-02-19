@@ -6,19 +6,17 @@ package com.kiosk.food;
  * @see Food
  */
 public class DietFood implements Food{
-    public static final int DIET_FOOD_CALORIES = 20;
 
-    private final String description;
-    private final double price;
+    private final Food food;
+
 
     /**
-     * Basic construction of a DietFood
+     * Constructor for a diet food item.
      *
-     * @param description the description of the diet food
+     * @param food the food item to be decorated
      */
-    public DietFood(String description){
-        this.description = description;
-        this.price = (double)DIET_FOOD_CALORIES/100;
+    public DietFood(Food food){
+        this.food = food;
     }
 
     /**
@@ -28,7 +26,7 @@ public class DietFood implements Food{
      */
     @Override
     public double getPrice() {
-        return this.price;
+        return this.food.getPrice();
     }
 
     /**
@@ -38,7 +36,7 @@ public class DietFood implements Food{
      */
     @Override
     public int getCalories() {
-        return DIET_FOOD_CALORIES;
+        return (int) (this.food.getCalories() * 0.8);
     }
 
     /**
@@ -46,6 +44,6 @@ public class DietFood implements Food{
      */
     @Override
     public String toString(){
-        return this.description;
+        return "Diet" + this.food.toString();
     }
 }

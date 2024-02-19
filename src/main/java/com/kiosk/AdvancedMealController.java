@@ -1,5 +1,6 @@
 package com.kiosk;
 
+import com.kiosk.food.DietFood;
 import com.kiosk.food.Food;
 
 /**
@@ -37,7 +38,7 @@ public class AdvancedMealController extends MealController{
      */
     public void addFoodItem(Food f, boolean isDiet) {
         if (isDiet) {
-            // TODO create a DietFood object and add it to the model
+            super.addFoodItem(new DietFood(f));
         } else {
             super.addFoodItem(f);
         }
