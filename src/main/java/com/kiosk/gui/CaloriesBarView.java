@@ -1,6 +1,7 @@
 package com.kiosk.gui;
 
 import com.kiosk.MealChangeEvent;
+import com.kiosk.MealModel;
 
 import javax.swing.JComponent;
 import java.awt.*;
@@ -101,6 +102,14 @@ public class CaloriesBarView extends JComponent implements PropertyChangeListene
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt instanceof MealChangeEvent) {
             String propertyName = evt.getPropertyName();
+
+            if(MealModel.CAL_COUNT_PROPERTY.equals(propertyName)){
+                this.currentValue = (Integer) evt.getNewValue();
+                repaint();
+            } else if (MealModel.CHECKOUT_PROPERTY.equals(propertyName)) {
+                this.currentValue = 0;
+                repaint();
+            }
 
         } else {
             throw new IllegalArgumentException("Unknown event for property: " + evt.getPropertyName());
