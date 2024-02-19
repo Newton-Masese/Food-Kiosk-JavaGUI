@@ -56,8 +56,7 @@ public class KioskGui extends JFrame {
         calTextPanel.setLayout(new BoxLayout(calTextPanel, BoxLayout.X_AXIS));
         calTextPanel.add(new JLabel("Total cal: "));
         CaloriesTextView caloriesText = new CaloriesTextView();
-        // TODO: uncomment the following line to add the CaloriesTextView as a listener to the model
-        // model.addPropertyChangeListener(caloriesText);
+        model.addPropertyChangeListener(caloriesText);
         calTextPanel.add(caloriesText);
 
         caloriesPanel.add(calTextPanel);
