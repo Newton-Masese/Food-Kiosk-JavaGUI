@@ -57,6 +57,8 @@ public class Meal extends MealModel{
         this.price = 0;
         this.calories = 0;
 
+        super.notifyChange(new MealChangeEvent(this, MealModel.CHECKOUT_PROPERTY, oldPrice, price));
+
         return checkout;
     }
     /**
